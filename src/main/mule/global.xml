@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="e635bd5d-c930-4be6-96d9-aee4a7718389" file="${env}.yaml" />
+	<global-property doc:name="Global Property" doc:id="c7e73e42-6982-4c5b-a678-2b962b4dc6b9" name="env" value="dev" />
+	<http:listener-config name="diyexperienceapi-httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="8086" readTimeout="1000000"/>
+    </http:listener-config>
+	<http:request-config name="HTTP_Request_SystemAPI" doc:name="HTTP Request configuration" doc:id="882e30bd-de3a-49f0-8c16-526553687efe" basePath="/api" >
+		<http:request-connection host="localhost" port="8084" connectionIdleTimeout="1000000"/>
+	</http:request-config>
+</mule>

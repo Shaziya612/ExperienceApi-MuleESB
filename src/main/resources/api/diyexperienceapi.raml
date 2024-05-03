@@ -1,0 +1,47 @@
+#%RAML 1.0
+title: DIYExperienceAPI
+
+traits:
+  headers: !include RequiredHeaders.raml
+  errortrait: !include errortrait.raml
+
+# API
+/source:
+  is:
+    - errortrait 
+  get:
+    is: [headers]
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+                        {
+            "message": "Successful response for experience GET method"
+          }
+  /id:
+    is:
+      - errortrait
+  post:
+    is: [headers]
+    body:
+      application/json:
+        example: 
+          [ 
+          {
+            "name": "Tom",
+            "id": "123",
+            "phone": "8096123456",
+            "city": "TPT"
+          },
+          {
+            "name": "jerry",
+            "id": "456",
+            "phone": "2345678235",
+            "city": "Bangloure"
+          }
+         ] 
+    responses:
+      200:
+        description: Successful response for experience POST method
+     
